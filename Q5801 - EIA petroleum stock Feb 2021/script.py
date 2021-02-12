@@ -13,12 +13,12 @@ v = v[-52*5:]
 y = np.array(v)
 # y = y[1:] - y[:-1]
 
-model = SARIMAX(y, order=(1, 1, 0), seasonal_order=(1, 1, 0, 52))
+model = SARIMAX(y, order=(1, 1, 0), seasonal_order=(1, 1, 0, 52), enforce_stationarity=False, trend='c')
 result = model.fit()
 
 print(result.summary())
 
-r = result.get_forecast(52)
+r = result.get_forecast(4 * 52)
 
 # print(r.predicted_mean)
 
@@ -40,5 +40,5 @@ print(np.percentile(q, 50))
 print(np.percentile(q, 75))
 
 plt.plot(w)
-plt.fill_between(range(52), c_lower, c_upper, alpha=.1)
+plt.fill_between(range(4 * 52), c_lower, c_upper, alpha=.1)
 plt.show()
