@@ -53,7 +53,7 @@ res = model.fit()
 
 print(res.summary())
 
-p = res.get_prediction(exog=[1, 3.6025, 2.47, 1.58])
+p = res.get_prediction(exog=[1, 3.24, 2.45, 1.52])
 print(p.predicted_mean + np.percentile(res.resid, 5), p.predicted_mean + np.percentile(res.resid, 95))
 print(p.predicted_mean)
 
