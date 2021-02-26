@@ -58,7 +58,7 @@ print(p.predicted_mean)
 q = res.get_prediction(exog=ex)
 print(np.std(q.predicted_mean))
 
-print(estimate(p.predicted_mean[0] + res.resid, num=2, tol=0.001))
+print(estimate(p.predicted_mean[0] + res.resid, num=1, tol=0.001))
 
 plt.plot(range(start, 2021-h), q.predicted_mean, color="r")
 plt.plot(range(start, 2021-h), returns, color="b")
